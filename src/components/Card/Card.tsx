@@ -8,7 +8,7 @@ export default function Card(props: Props) {
   const { url, alt } = props;
   return (
     <div>
-      <img src={url} alt={alt} style={{ width: "300px" }} />
+      <img src={url} alt={alt} style={{ height: "300px" }} />
     </div>
   );
 }
