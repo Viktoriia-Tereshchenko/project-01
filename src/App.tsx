@@ -14,7 +14,9 @@ function App() {
   const userName = "our favourite user";
   const myUrl =
     "https://developer.alexanderklimov.ru/android/java/sampleapp.jpg";
-  const aboutMe = "In my free time I like to listen to music and dance.";
+  const profileName = "Anna Ivanova";
+  const aboutMe =
+    "A desperate housewife and cat lover. Knits tiny hats for kittens in her free time.";
 
   return (
     <>
@@ -32,7 +34,11 @@ function App() {
       {/* лучше для наших лого - постоянных картинок */}
       {/* <img src={catPicture} alt="cat3" style={{ height: "200px" }} /> */}
 
-      <ProfileCard name="Vika" avatar={catPicture} description={aboutMe} />
+      <ProfileCard
+        name={profileName}
+        avatar={catPicture}
+        description={aboutMe}
+      />
     </>
   );
 }
