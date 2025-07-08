@@ -5,21 +5,29 @@ import ThankYou from "./components/ThankYou/ThankYou";
 import catPicture from "./assets/cat3.jpg";
 import Goodbye from "./components/Goodbye/Goodbye";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
+import { Counter } from "./components/Counter/Counter";
+import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
+import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 
 function App() {
-  // 1. Cоздать компонент, который возвращал div, внутри которого находится следующая информация "Thank you for using our services!".
-  // Назвать компонент ThankYou и отобразить рядом с Greeting. Прислать код App и код компонента
-  // 2. Создайте компонент с картинкой, назвать Card (тег img внутри div). Пусть ссылка на картинку передается при помощи props url
-
   const userName = "our favourite user";
   const myUrl =
     "https://developer.alexanderklimov.ru/android/java/sampleapp.jpg";
   const profileName = "Anna Ivanova";
   const aboutMe =
     "A desperate housewife and cat lover. Knits tiny hats for kittens in her free time.";
+  const user = {
+    name: "test",
+    avatar: "test.img",
+    description: "test",
+  };
 
   return (
     <>
+      <WeightCalculator />
+      <Counter />
+      <Counter />
+      <PersonalGreeting />
       {/* вызов функции в декларативном стиле*/}
       <Greeting name={userName} />
       {/* <Greeting name={"Evgenii"} age={18} /> */}
@@ -39,6 +47,8 @@ function App() {
         avatar={catPicture}
         description={aboutMe}
       />
+
+      {/* <ProfileCard {...user} /> */}
     </>
   );
 }
