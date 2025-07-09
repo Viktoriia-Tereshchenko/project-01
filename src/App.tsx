@@ -8,6 +8,7 @@ import ProfileCard from "./components/ProfileCard/ProfileCard";
 import { Counter } from "./components/Counter/Counter";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
+import { SpaceMissionForm } from "./components/SpaceMissionForm/SpaceMissionForm";
 
 function App() {
   const userName = "our favourite user";
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <SpaceMissionForm />
       <WeightCalculator />
       <Counter />
       <Counter />
