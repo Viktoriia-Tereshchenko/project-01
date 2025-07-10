@@ -18,17 +18,17 @@ import ProfileCard from "./components/ProfileCard/ProfileCard";
 import { AccountLayout } from "./layout/AccountLayout";
 
 function App() {
-  const userName = "our favourite user";
+  // const userName = "our favourite user";
   const myUrl =
     "https://developer.alexanderklimov.ru/android/java/sampleapp.jpg";
   const profileName = "Anna Ivanova";
   const aboutMe =
     "A desperate housewife and cat lover. Knits tiny hats for kittens in her free time.";
-  const user = {
-    name: "test",
-    avatar: "test.img",
-    description: "test",
-  };
+  // const user = {
+  //   name: "test",
+  //   avatar: "test.img",
+  //   description: "test",
+  // };
 
   return (
     <>
