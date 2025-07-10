@@ -40,7 +40,7 @@ export const AgePredictor = () => {
     <section>
       <h2>AgePredictor</h2>
       <p style={{ color: "red" }}>{nameErrorMessage}</p>
-      {/* {errorMessage ? <p>{errorMessage}</p> : null}*/}
+      {errorMessage ? <p>{errorMessage}</p> : null}
       {/* <p style={{ color: "orange" }}>{errorMessage}</p> */}
       <input
         type="text"
