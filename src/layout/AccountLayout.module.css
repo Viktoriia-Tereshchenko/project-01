@@ -1,0 +1,10 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.link {
+  color: rgb(12, 65, 126);
+}

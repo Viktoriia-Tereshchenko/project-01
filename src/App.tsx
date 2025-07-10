@@ -1,16 +1,5 @@
 import "./App.css";
-// import Card from "./components/Card/Card";
-// import Greeting from "./components/Greeting/Greeting";
-// import ThankYou from "./components/ThankYou/ThankYou";
-// import catPicture from "./assets/cat3.jpg";
-// import Goodbye from "./components/Goodbye/Goodbye";
-// import ProfileCard from "./components/ProfileCard/ProfileCard";
 import { Counter } from "./components/Counter/Counter";
-// import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
-// import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
-import SpaceMissionForm from "./components/SpaceMissionForm";
-// import { SpaceMissionForm } from "./components/SpaceMissionForm/SpaceMissionForm";
-// import Demo from "./components/Demo";
 import { AgePredictor } from "./components/AgePredictor/AgePredictor";
 import { GenderPredictor } from "./components/GenderPredictor/GenderPredictor";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -18,10 +7,15 @@ import Registration from "./pages/Registration/Registration";
 import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
 import { MainLayout } from "./layout/MainLayout";
-import { PonyLayout } from "./layout/PonyLayout";
-import MyPony from "./components/pony/MyPony/MyPony";
-import BuyPony from "./components/pony/BuyPony/BuyPony";
+// import { PonyLayout } from "./layout/PonyLayout";
+// import MyPony from "./components/pony/MyPony/MyPony";
+// import BuyPony from "./components/pony/BuyPony/BuyPony";
 import { ROUTES } from "./components/constants/routes";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
+import { AccountLayout } from "./layout/AccountLayout";
 
 function App() {
   const userName = "our favourite user";
@@ -39,55 +33,47 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* роутинг/маршрутизация */}
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            {/* <Route path="/" element={<Home />} /> */}
             <Route index element={<Home />} />
+
             <Route path={ROUTES.REGISTRATION} element={<Registration />} />
             <Route
               path={ROUTES.GENDER_PREDICTOR}
               element={<GenderPredictor />}
             />
-            <Route path="age-predictor" element={<AgePredictor />} />
-            <Route path="counter" element={<Counter />} />
-            <Route path="space-mission-form" element={<SpaceMissionForm />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/pony" element={<PonyLayout />}>
+            <Route path={ROUTES.AGE_PREDICTOR} element={<AgePredictor />} />
+            <Route path={ROUTES.COUNTER} element={<Counter />} />
+            <Route
+              path={ROUTES.SPACE_MISSION_FORM}
+              element={<SpaceMissionForm />}
+            />
+
+            <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
+              <Route path={ROUTES.ACCOUNT_SETTINGS} element={<NotFound />} />
+              <Route
+                path={ROUTES.ACCOUNT_USER_INFO}
+                element={
+                  <ProfileCard
+                    name={profileName}
+                    avatar={myUrl}
+                    description={aboutMe}
+                  />
+                }
+              />
+            </Route>
+
+            {/* <Route path="/pony" element={<PonyLayout />}>
               <Route path="/pony/my-pony" element={<MyPony />} />
               <Route path="/pony/buy-pony" element={<BuyPony />} />
-            </Route>
+            </Route> */}
+
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
-
-      {/* <GenderPredictor /> */}
-      {/* <AgePredictor /> */}
-      {/* <Demo /> */}
-      {/* <SpaceMissionForm /> */}
-      {/* <WeightCalculator /> */}
-      {/* <Counter /> */}
-      {/* <Counter /> */}
-      {/* <PersonalGreeting /> */}
-      {/* вызов функции в декларативном стиле*/}
-      {/* <Greeting name={userName} /> */}
-      {/* <Greeting name={"Evgenii"} age={18} /> */}
-      {/* <ThankYou /> */}
-      {/* <Goodbye /> */}
-
-      {/* <Card url={myUrl} alt="cat" /> */}
-      {/* вариант1 - если картинка в папке public */}
-      {/* лучше для меняющихся картинок - внешняя ссылка*/}
-      {/* <img src="/cat2.jpg" alt="cat1" style={{ height: "200px" }} /> */}
-      {/* вариант2 - если картинка в папке assets */}
-      {/* лучше для наших лого - постоянных картинок */}
-      {/* <img src={catPicture} alt="cat3" style={{ height: "200px" }} /> */}
-
-      {/* <ProfileCard
-        name={profileName}
-        avatar={catPicture}
-        description={aboutMe}
-      /> */}
 
       {/* <ProfileCard {...user} /> */}
     </>

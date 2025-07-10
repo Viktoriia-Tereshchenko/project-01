@@ -1,39 +1,52 @@
 import { useState } from "react";
-import Planet from "./planet-option";
+import styles from "./SpaceMissionForm.module.css";
 
-export const SpaceMissionForm = () => {
-  const [fullName, setFullName] = useState<string>(""); //useState<string | undefined>(undefined);
-  const [planet, setPlanet] = useState<string>(Planet.MARS);
+export default function SpaceMissionForm() {
+  const [name, setName] = useState<string>("");
+  const [planet, setPlanet] = useState<string>("Mercury");
+  const [message, setMessage] = useState<string>("");
+
+  function startMission() {
+    if (name !== "") {
+      setMessage(`🧑‍🚀Astronaut ${name} is headed to ${planet}!`);
+    } else {
+      setMessage("Please enter your name to begin your mission!");
+    }
+  }
 
   return (
-    <div>
-      <input
-        type="text"
-        value={fullName}
-        onChange={(event) => setFullName(event.target.value)}
-      />
+    <div className={styles.smform}>
+      <h2>Space Mission</h2>
+      <label>
+        Name:
+        <input
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className={styles.inp}
+        />
+      </label>
 
       <select
+        name="planet"
         value={planet}
-        onChange={(event) =>
-          //setPlanet(Planet[event.target.value as keyof typeof Planet])
-          setPlanet(event.target.value)
-        }
+        onChange={(event) => setPlanet(event.target.value)}
       >
-        <option value={Planet.MARS}>{Planet.MARS}</option>
-        <option value={Planet.VENUS}>{Planet.VENUS}</option>
-        <option value={Planet.JUPITER}>{Planet.JUPITER}</option>
-        <option value={Planet.SARURN}>{Planet.SARURN}</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth">Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Neptune">Neptune</option>
       </select>
 
-      {/* тернарный оператор */}
-      {fullName ? (
-        <p>
-          🧑‍🚀 Astronaut {fullName} is headed to {planet}!
-        </p>
-      ) : (
-        <p>Please enter your name to begin your mission.</p>
-      )}
+      <button type="button" onClick={startMission}>
+        start
+      </button>
+
+      <h3>{message}</h3>
     </div>
   );
-};
+}

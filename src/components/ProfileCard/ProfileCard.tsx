@@ -30,8 +30,8 @@ interface ProfileCardProps {
 const ProfileCard2: FC<ProfileCardProps> = ({ avatar, name, description }) => {
   return (
     <div className={styles.userCard}>
-      <img src={avatar} alt="avatar" />
       <h2>{name}</h2>
+      <img src={avatar} alt="avatar" />
       <p>{description}</p>
     </div>
   );

@@ -12,7 +12,7 @@ export const MainLayout = () => {
       {/* сюда будут подставляться наши Route */}
       <Outlet />
 
-      <footer>
+      <footer style={{ margin: "50px" }}>
         {/* для внешнего сайта - обычные ссылки */}
         <a href="">Instagram📱</a>
       </footer>

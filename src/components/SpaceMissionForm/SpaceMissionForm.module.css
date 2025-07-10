@@ -1,14 +1,13 @@
 .smform {
-  /* background-color: whitesmoke; */
   background-image: url("../../assets/space.jpg");
   width: 550px;
   height: 350px;
-  margin: 20px;
+  margin: 20px 30%;
   padding: 20px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.354);
