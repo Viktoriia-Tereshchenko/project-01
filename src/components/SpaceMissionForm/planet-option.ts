@@ -1,8 +1,8 @@
-const option = {
+const Planet = {
   MARS: "Mars",
   VENUS: "Venus",
   JUPITER: "Jupiter",
-  SARURN: "Saturn",
-};
+  SATURN: "Saturn",
+} as const;
 
-export default option;
+export default Planet;

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import option from "./planet-option";
+import Planet from "./planet-option";
 
 export const SpaceMissionForm = () => {
   const [fullName, setFullName] = useState<string>(""); //useState<string | undefined>(undefined);
-  const [planet, setPlanet] = useState<string>(option.MARS);
+  const [planet, setPlanet] = useState<string>(Planet.MARS);
 
   return (
     <div>
@@ -20,10 +20,10 @@ export const SpaceMissionForm = () => {
           setPlanet(event.target.value)
         }
       >
-        <option value={option.MARS}>{option.MARS}</option>
-        <option value={option.VENUS}>{option.VENUS}</option>
-        <option value={option.JUPITER}>{option.JUPITER}</option>
-        <option value={option.SARURN}>{option.SARURN}</option>
+        <option value={Planet.MARS}>{Planet.MARS}</option>
+        <option value={Planet.VENUS}>{Planet.VENUS}</option>
+        <option value={Planet.JUPITER}>{Planet.JUPITER}</option>
+        <option value={Planet.SARURN}>{Planet.SARURN}</option>
       </select>
 
       {/* тернарный оператор */}
