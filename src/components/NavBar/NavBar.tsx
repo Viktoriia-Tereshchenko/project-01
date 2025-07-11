@@ -1,38 +1,48 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import styles from "./NavBar.module.css";
 
 export const NavBar = () => {
+  const classSelector = ({ isActive }: { isActive: boolean }) => {
+    return isActive ? "nav-link-active" : "nav-link";
+  };
+
   return (
     <>
       <nav className={styles.navigation}>
-        <Link to="/" className={styles.link}>
+        <NavLink to="/" className={classSelector}>
           Home
-        </Link>
-        <Link to={ROUTES.REGISTRATION} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.REGISTRATION} className={classSelector}>
           Sign Up
-        </Link>
-        <Link to={ROUTES.GENDER_PREDICTOR} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.GENDER_PREDICTOR} className={classSelector}>
           Gender predictor
-        </Link>
-        <Link to={ROUTES.AGE_PREDICTOR} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.AGE_PREDICTOR} className={classSelector}>
           Age predictor
-        </Link>
-        <Link to={ROUTES.COUNTER} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.COUNTER} className={classSelector}>
           Counter
-        </Link>
-        <Link to={ROUTES.SPACE_MISSION_FORM} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.SPACE_MISSION_FORM} className={classSelector}>
           Space mission
-        </Link>
-        <Link to={ROUTES.ACCOUNT} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.ACCOUNT} className={classSelector}>
           Account
-        </Link>
-        <Link to={ROUTES.ABOUT} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.PRODUCTS} className={classSelector}>
+          Products
+        </NavLink>
+        <NavLink to={ROUTES.USERS} className={classSelector}>
+          Users
+        </NavLink>
+        <NavLink to={ROUTES.ABOUT} className={classSelector}>
           About
-        </Link>
-        <Link to={ROUTES.CONTACT} className={styles.link}>
+        </NavLink>
+        <NavLink to={ROUTES.CONTACT} className={classSelector}>
           Contact
-        </Link>
+        </NavLink>
       </nav>
     </>
   );

@@ -10,4 +10,14 @@ export const ROUTES = {
   ACCOUNT: "/account",
   ACCOUNT_SETTINGS: "/account/settings",
   ACCOUNT_USER_INFO: "/account/user-info",
+  PRODUCTS: "/products",
+  USERS: "/users",
+  USER: "/users/:userId",
 } as const;
+
+/*
+export const ACCOUNT_ROUTES = {
+  ACCOUNT_SETTINGS: ROUTES.ACCOUNT + "/settings",
+  ACCOUNT_INFO: ROUTES.ACCOUNT + "info",
+} as const;
+ */
