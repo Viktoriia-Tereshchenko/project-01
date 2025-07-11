@@ -13,7 +13,6 @@ import ProfileCard from "../components/ProfileCard/ProfileCard";
 import Contact from "../pages/Contact/Contact";
 import About from "../pages/About/About";
 import AccountSettings from "../components/AccountSettings/AccountSettings";
-import AccountInfo from "../components/AccountInfo/AccountInfo";
 import { ProductsList } from "../pages/ProductsList/ProductsList";
 import ProductPage from "../pages/ProductPage/ProductPage";
 import UsersList from "../pages/UsersList/UsersList";
