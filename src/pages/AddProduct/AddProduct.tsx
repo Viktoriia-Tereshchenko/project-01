@@ -5,23 +5,22 @@ import styles from "./AddProduct.module.css";
 
 const SignupSchema = Yup.object().shape({
   title: Yup.string()
-    .min(2, "Title is too Short!")
-    .max(50, "Title is too Long!")
+    .min(2, "Title is too short!")
+    .max(50, "Title is too long!")
     .required("Title is required"),
   price: Yup.number()
     .positive("Price must be more than 0")
     .required("Price is required"),
   description: Yup.string()
-    .min(5, "Description is too Short!")
-    .max(500, "Description is too Long!")
+    .min(5, "Description is too short!")
+    .max(1000, "Description is too long!")
     .required("Description is required"),
   categoryId: Yup.number()
     .positive("Invalid category")
     .required("Category is required"),
-
   images: Yup.string()
-    .min(10, "Image URL is too Short!")
-    .max(300, "Image URL is too Long!")
+    .min(10, "Image URL is too short!")
+    .max(500, "Image URL is too long!")
     .required("Required"),
 });
 
