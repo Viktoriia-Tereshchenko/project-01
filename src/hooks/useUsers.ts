@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import type { User2 } from "../types";
+import type { User } from "../types";
 
 export default function useUsers() {
-  const [users, setUsers] = useState<User2[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [errMessage, setErrMessage] = useState<string>("");
 

@@ -15,6 +15,7 @@ export const ROUTES = {
   USER: "/users/:userId",
   LOGIN: "/login",
   USERS2: "/users2",
+  ADD_PRODUCT: "/add-product",
 } as const;
 
 /*
