@@ -23,3 +23,12 @@ export interface User {
   role: string;
   avatar: string;
 }
+
+export interface User2 {
+  id: number;
+  email: string;
+  password: string;
+  name: string;
+  role: string;
+  avatar: string;
+}

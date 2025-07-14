@@ -17,6 +17,9 @@ import { ProductsList } from "../pages/ProductsList/ProductsList";
 import ProductPage from "../pages/ProductPage/ProductPage";
 import UsersList from "../pages/UsersList/UsersList";
 import UserPage from "../pages/UserPage/UserPage";
+import { UsersList2 } from "../components/UsersList2/UsersList2";
+import { UserPage2 } from "../pages/UserPage2/UserPage2";
+import Login from "../pages/Login/Login";
 
 // const userName = "our favourite user";
 const myUrl = "https://developer.alexanderklimov.ru/android/java/sampleapp.jpg";
@@ -37,6 +40,8 @@ export default function AppRoutes() {
           <Route index element={<Home />} />
 
           <Route path={ROUTES.REGISTRATION} element={<Registration />} />
+          <Route path={ROUTES.LOGIN} element={<Login />} />
+
           <Route path={ROUTES.GENDER_PREDICTOR} element={<GenderPredictor />} />
           <Route path={ROUTES.AGE_PREDICTOR} element={<AgePredictor />} />
           <Route path={ROUTES.COUNTER} element={<Counter />} />
@@ -78,6 +83,9 @@ export default function AppRoutes() {
 
           <Route path={ROUTES.USERS} element={<UsersList />} />
           <Route path={ROUTES.USER} element={<UserPage />} />
+
+          <Route path={ROUTES.USERS2} element={<UsersList2 />} />
+          <Route path={ROUTES.USERS2 + "/:id"} element={<UserPage2 />} />
 
           <Route path={ROUTES.CONTACT} element={<Contact />} />
           <Route path="*" element={<NotFound />} />
