@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { User } from "../../types";
 import { Link } from "react-router-dom";
 import styles from "./UsersList.module.css";
+import avatar from "../../assets/avatar.jpg";
 
 export default function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
@@ -27,18 +28,27 @@ export default function UsersList() {
   }
 
   return (
-    <div>
+    <>
       <h2>Our favorite users</h2>
-      <ul className={styles.usersList}>
+      <div className={styles.container}>
         {users.map((user) => (
-          <li key={"user" + user.id}>
-            <h4>
-              {user.email}
-              <Link to={`/users/${user.id}`}>➡️</Link>
-            </h4>
-          </li>
+          <div key={"user" + user.id}>
+            <h4>{user.email}</h4>
+            <Link to={`/users/${user.id}`}>
+              <img
+                src={user.avatar}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = avatar;
+                }}
+                alt="user avatar"
+                className={styles.avatarImg}
+              />
+            </Link>
+          </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    </>
   );
 }
+
+//➡️

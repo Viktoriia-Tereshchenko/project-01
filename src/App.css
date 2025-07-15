@@ -5,11 +5,13 @@ body {
 }
 
 .nav-link-active {
-  color: gold;
+  /* color: goldenrod; */
+  color: #976f5b;
   font-size: 35px;
 }
 
 .nav-link {
   color: white;
+  /* color: black; */
   font-size: 35px;
 }

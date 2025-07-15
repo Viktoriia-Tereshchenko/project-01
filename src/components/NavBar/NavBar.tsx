@@ -1,11 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import styles from "./NavBar.module.css";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
+import { useCounter } from "../../hooks/useCounter";
 
 export const NavBar = () => {
   const classSelector = ({ isActive }: { isActive: boolean }) => {
     return isActive ? "nav-link-active" : "nav-link";
   };
+
+  const { user } = useCurrentUser();
+  const { counter } = useCounter();
 
   return (
     <>
@@ -40,18 +45,24 @@ export const NavBar = () => {
         <NavLink to={ROUTES.ADD_PRODUCT} className={classSelector}>
           Add product
         </NavLink>
+        {/* <NavLink to={"product/add"} className={classSelector}>
+          Create product
+        </NavLink> */}
         <NavLink to={ROUTES.USERS} className={classSelector}>
           Users
         </NavLink>
-        <NavLink to={ROUTES.USERS2} className={classSelector}>
+        {/* <NavLink to={ROUTES.USERS2} className={classSelector}>
           Users2
-        </NavLink>
+        </NavLink> */}
         <NavLink to={ROUTES.ABOUT} className={classSelector}>
           About
         </NavLink>
         <NavLink to={ROUTES.CONTACT} className={classSelector}>
           Contact
         </NavLink>
+        {/* отображение в header */}
+        <p className={styles.navContext}>{user?.email}</p>
+        <p className={styles.navContext}>{counter}</p>
       </nav>
     </>
   );

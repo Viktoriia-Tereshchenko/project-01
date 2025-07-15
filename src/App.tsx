@@ -1,17 +1,18 @@
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-
-// import { PonyLayout } from "./layout/PonyLayout";
-// import MyPony from "./components/pony/MyPony/MyPony";
-// import BuyPony from "./components/pony/BuyPony/BuyPony";
-
+import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
+import { AuthProvider } from "./providers/AuthProvider";
+import { CounterProvider } from "./providers/CounterProvider";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <AppRoutes />
+        <AuthProvider>
+          <CounterProvider>
+            <AppRoutes />
+          </CounterProvider>
+        </AuthProvider>
       </BrowserRouter>
 
       {/* <ProfileCard {...user} /> */}

@@ -30,12 +30,14 @@ export default function UserPage() {
   }, [userId]);
 
   return (
-    <div className={styles.container}>
+    <>
       <h2>User Page</h2>
-      <h3>{user?.name}</h3>
-      <h4>{user?.email}</h4>
-      <img src={user?.avatar} alt="avatar" />
-      <p>{user?.role}</p>
-    </div>
+      <div className={styles.container}>
+        <h3>{user?.name}</h3>
+        <h4>{user?.email}</h4>
+        <img src={user?.avatar} alt="avatar" />
+        <p>{user?.role}</p>
+      </div>
+    </>
   );
 }

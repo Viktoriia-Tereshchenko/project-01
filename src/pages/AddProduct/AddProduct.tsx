@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import styles from "./AddProduct.module.css";
 
-const SignupSchema = Yup.object().shape({
+const AddProductSchema = Yup.object().shape({
   title: Yup.string()
     .min(2, "Title is too short!")
     .max(50, "Title is too long!")
@@ -55,7 +55,7 @@ export const AddProduct = () => {
   }, []);
 
   async function fetchAddProduct(newProduct: NewProduct) {
-    const res = await fetch("https://api.escuelajs.co/api/v1/products/", {
+    const res = await fetch("https://api.escuelajs.co/api/v1/products", {
       method: "POST",
       headers: { "Content-Type": "Application/JSON" },
       body: JSON.stringify(newProduct),
@@ -76,9 +76,9 @@ export const AddProduct = () => {
           price: 0,
           description: "",
           categoryId: "",
-          images: "",
+          image: "",
         }}
-        validationSchema={SignupSchema}
+        validationSchema={AddProductSchema}
         onSubmit={(values) => {
           //console.log(values);
 
@@ -87,7 +87,7 @@ export const AddProduct = () => {
             price: Number(values.price),
             description: values.description,
             categoryId: Number(values.categoryId),
-            images: [values.images],
+            images: [values.image],
           };
 
           fetchAddProduct(newProduct);

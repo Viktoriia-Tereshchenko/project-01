@@ -1,10 +1,15 @@
 .navigation {
   margin: 20px;
   padding: 20px;
-  background-color: rgb(12, 65, 126);
+
+  /* background-color: rgb(12, 65, 126); */
+  background-color: rgb(204, 199, 199);
+  /* border: solid 10px rgb(151, 186, 229); */
+  /* border: solid 5px #371005; */
+  color: black;
+  border-radius: 20px;
+
   height: 100px;
-  border: solid 10px rgb(151, 186, 229);
-  /* position: sticky; */
   top: 0;
   max-width: 1600px;
   height: 100%;
@@ -13,11 +18,13 @@
   align-items: baseline;
   flex-wrap: wrap;
   gap: 30px;
+  box-shadow: 0 6px 15px rgba(90, 60, 40, 0.3);
 }
 
 .link {
-  color: white;
+  /* color: white; */
   font-size: 35px;
+  text-shadow: 1px 1px 2px rgba(60, 40, 30, 0.3);
 }
 
 .link:hover {
@@ -34,16 +41,23 @@
   flex-wrap: wrap;
 }
 
-.navBar > a {
-  color: black;
-  text-decoration: none;
+.navContext {
+  color: #976f5b;
+  font-weight: bold;
+  font-size: 30px;
 }
 
-.navBar > a:hover {
-  color: rgb(222, 34, 169);
-  text-decoration: none;
+a {
+  font-weight: 500;
+  color: #976f5b;
+  text-decoration: inherit;
+  text-shadow: 1px 1px 2px rgba(60, 40, 30, 0.3);
+}
+a:hover {
+  color: #371005;
 }
 
-.navLinkActive {
-  color: goldenrod;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }

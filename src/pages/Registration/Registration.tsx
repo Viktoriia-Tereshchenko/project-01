@@ -1,23 +1,24 @@
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+import styles from "./Registration.module.css";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+    .min(2, "Name is too short!")
+    .max(50, "Name is too long!")
+    .required("Name is required"),
   password: Yup.string()
-    .min(8, "Too Short!")
+    .min(8, "Password is too short!")
     .matches(/[A-Z]/, "Minimum one capital letter")
     .matches(/[0-9]/, "Minimum one digit")
-    .max(50, "Too Long!")
-    .required("Required"),
+    .max(50, "Password is too long!")
+    .required("Password is required"),
   avatar: Yup.string()
-    .min(2, "Too Short!")
-    .max(240, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+    .min(2, "Avatar url is too short!")
+    .max(240, "Avatar url is too long!")
+    .required("Avatar url is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
 });
 
 interface Credentials {
@@ -43,7 +44,7 @@ const Registration = () => {
 
   return (
     <div>
-      <h1>Signup</h1>
+      <h2>Sign up</h2>
       {message ? <div>{message}</div> : null}
       <Formik
         initialValues={{
@@ -60,22 +61,26 @@ const Registration = () => {
         }}
       >
         {({ errors, touched }) => (
-          <Form>
+          <Form className={styles.container}>
             <label>Name:</label>
-            <Field name="name" />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
+            <Field name="name" className={styles.inp} />
+            {errors.name && touched.name ? (
+              <div className={styles.err}>{errors.name}</div>
+            ) : null}
             <label>Password:</label>
-            <Field name="password" type="password" />
+            <Field name="password" type="password" className={styles.inp} />
             {errors.password && touched.password ? (
-              <div>{errors.password}</div>
+              <div className={styles.err}>{errors.password}</div>
             ) : null}
             <label>Email:</label>
-            <Field name="email" type="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            <Field name="email" type="email" className={styles.inp} />
+            {errors.email && touched.email ? (
+              <div className={styles.err}>{errors.email}</div>
+            ) : null}
             <label>Avatar:</label>
-            <Field name="avatar" />
+            <Field name="avatar" className={styles.inp} />
             {errors.avatar && touched.avatar ? (
-              <div>{errors.avatar}</div>
+              <div className={styles.err}>{errors.avatar}</div>
             ) : null}
             <button type="submit">Submit</button>
           </Form>

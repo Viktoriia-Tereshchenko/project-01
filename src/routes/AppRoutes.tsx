@@ -21,6 +21,7 @@ import { UsersList2 } from "../components/UsersList2/UsersList2";
 import { UserPage2 } from "../pages/UserPage2/UserPage2";
 import Login from "../pages/Login/Login";
 import { AddProduct } from "../pages/AddProduct/AddProduct";
+import CreateProduct from "../pages/CreateProduct/CreateProduct";
 
 // const userName = "our favourite user";
 const myUrl = "https://developer.alexanderklimov.ru/android/java/sampleapp.jpg";
@@ -83,6 +84,7 @@ export default function AppRoutes() {
           <Route path={"/products/:id"} element={<ProductPage />} />
 
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
+          <Route path={"product/add"} element={<CreateProduct />} />
 
           <Route path={ROUTES.USERS} element={<UsersList />} />
           <Route path={ROUTES.USER} element={<UserPage />} />
