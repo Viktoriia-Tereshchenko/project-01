@@ -135,11 +135,11 @@ export const AddProduct = () => {
             )}
 
             <label>
-              Images:
-              <Field name="images" className={styles.inp} />
+              Image:
+              <Field name="image" className={styles.inp} />
             </label>
-            {errors.images && touched.images ? (
-              <div className={styles.err}>{errors.images}</div>
+            {errors.image && touched.image ? (
+              <div className={styles.err}>{errors.image}</div>
             ) : null}
             <button type="submit">Add product</button>
           </Form>
