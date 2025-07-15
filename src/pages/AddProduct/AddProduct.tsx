@@ -18,7 +18,7 @@ const AddProductSchema = Yup.object().shape({
   categoryId: Yup.number()
     .positive("Invalid category")
     .required("Category is required"),
-  images: Yup.string()
+  image: Yup.string()
     .min(10, "Image URL is too short!")
     .max(500, "Image URL is too long!")
     .required("Required"),
