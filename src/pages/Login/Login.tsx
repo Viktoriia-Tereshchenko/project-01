@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { useState } from "react";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../components/constants/routes";
 
 const SignupSchema = Yup.object().shape({
   password: Yup.string()
@@ -21,8 +23,8 @@ interface Credentials {
 
 const Login = () => {
   const [message, setMessage] = useState("");
-  // 3. Получение из контекста
-  const { setUser } = useCurrentUser();
+  const { setIsAuthorized } = useCurrentUser();
+  const navigate = useNavigate();
 
   async function fetchLogin(credentials: Credentials) {
     const res = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
@@ -36,16 +38,12 @@ const Login = () => {
 
       // получение ТОКИНОВ
       const { access_token } = await res.json();
-      fetchUser(access_token);
+      localStorage.setItem("accessToken", access_token);
+      localStorage.setItem("isAuthorized", "true");
+      setIsAuthorized(true);
+      //navigate(-1); // на предыдущую
+      navigate(ROUTES.ACCOUNT); // на предыдущую
     }
-  }
-
-  async function fetchUser(access_token: string) {
-    const res = await fetch("https://api.escuelajs.co/api/v1/auth/profile", {
-      headers: { Authorization: `Bearer ${access_token}` },
-    });
-    const obj = await res.json();
-    setUser(obj);
   }
 
   return (
