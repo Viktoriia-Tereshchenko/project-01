@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./SpaceMissionForm.module.css";
+import spaceImg from "../../assets/space.jpg";
 
 export default function SpaceMissionForm() {
   const [name, setName] = useState<string>("");
@@ -15,21 +15,25 @@ export default function SpaceMissionForm() {
   }
 
   return (
-    <div className={styles.smform}>
-      <h2>Space Mission</h2>
-      <label>
+    <div
+      className="bg-[url('../../assets/space.jpg')] bg-cover bg-center w-150 h-100 my-5 mx-[30%] p-5 rounded-lg flex flex-col justify-center items-center gap-5 shadow-md text-white"
+      style={{ backgroundImage: `url(${spaceImg})` }}
+    >
+      <h2 className="text-white font-bold">Space Mission</h2>
+      <label className="text-[#682e11]">
         Name:
         <input
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          className={styles.inp}
+          className="w-50 h-6 bg-white text-black text-center"
         />
       </label>
 
       <select
         name="planet"
         value={planet}
+        className="bg-white text-black"
         onChange={(event) => setPlanet(event.target.value)}
       >
         <option value="Mercury">Mercury</option>
@@ -42,11 +46,15 @@ export default function SpaceMissionForm() {
         <option value="Neptune">Neptune</option>
       </select>
 
-      <button type="button" onClick={startMission}>
+      <button
+        type="button"
+        onClick={startMission}
+        className="w-36 h-12 rounded-lg bg-[#724545] text-white font-bold cursor-pointer shadow-md"
+      >
         start
       </button>
 
-      <h3>{message}</h3>
+      <p className="text-white font-bold">{message}</p>
     </div>
   );
 }

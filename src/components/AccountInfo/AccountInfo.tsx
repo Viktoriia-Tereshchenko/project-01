@@ -1,6 +1,6 @@
 export default function AccountInfo() {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center mt-2">
       AccountInfo
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quo

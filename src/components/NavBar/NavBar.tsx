@@ -1,12 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
-import styles from "./NavBar.module.css";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { useCounter } from "../../hooks/useCounter";
 
 export const NavBar = () => {
   const classSelector = ({ isActive }: { isActive: boolean }) => {
-    return isActive ? "nav-link-active" : "nav-link";
+    return isActive ? "text-[#976f5b]" : "hover:text-pink-950";
   };
 
   const { user, setIsAuthorized, isAuthorized } = useCurrentUser();
@@ -18,8 +17,7 @@ export const NavBar = () => {
 
   return (
     <>
-      {/* <nav className={styles.navigation}> */}
-      <nav className="flex justify-center items-center gap-4 flex-wrap bg-pink-200 min-h-14 p-6">
+      <nav className="flex justify-center items-center gap-4 flex-wrap shadow-xl/10 rounded-xl bg-stone-300 text-white text-shadow-md text-2xl font-semibold 0 min-h-14 p-6 m-6">
         <NavLink to="/" className={classSelector}>
           Home
         </NavLink>
@@ -65,13 +63,21 @@ export const NavBar = () => {
         <NavLink to={ROUTES.CONTACT} className={classSelector}>
           Contact
         </NavLink>
-        <NavLink to={"/gallery"}>Gallery</NavLink>
-        <NavLink to={"/toggle-card"}>ToggleCard</NavLink>
+        <NavLink to={"/gallery"} className={classSelector}>
+          Gallery
+        </NavLink>
+        <NavLink to={"/toggle-card"} className={classSelector}>
+          ToggleCard
+        </NavLink>
         {/* отображение в header */}
-        <p className={styles.navContext}>{user?.email}</p>
-        <p className={styles.navContext}>{counter}</p>
+        <p className="text-[#682e11]">{user?.email}</p>
+        <p className="text-[#682e11]">{counter}</p>
         {isAuthorized ? (
-          <button type="button" onClick={handleLogout} className={styles.btn}>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="text-[#976f5b] text-shadow-md text-2xl bg-none cursor-pointer hover:text-pink-950 underline"
+          >
             Logout
           </button>
         ) : null}

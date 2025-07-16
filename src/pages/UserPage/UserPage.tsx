@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { User } from "../../types";
-import styles from "./UserPage.module.css";
 
 export default function UserPage() {
   const { userId } = useParams();
@@ -30,14 +29,14 @@ export default function UserPage() {
   }, [userId]);
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center mt-2">
       <h2>User Page</h2>
-      <div className={styles.container}>
+      <div className="bg-[#e8e4e4] border-none rounded-lg p-4 flex flex-col justify-start items-center text-center shadow-md gap-2 w-150 mx-auto my-5">
         <h3>{user?.name}</h3>
         <h4>{user?.email}</h4>
-        <img src={user?.avatar} alt="avatar" />
+        <img src={user?.avatar} alt="avatar" className="w-72 rounded-lg" />
         <p>{user?.role}</p>
       </div>
-    </>
+    </div>
   );
 }

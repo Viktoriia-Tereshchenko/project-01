@@ -27,14 +27,19 @@ export const GenderPredictor = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center mt-2">
       <input
         type="text"
         value={name}
         // event.target - это сам input
         onChange={(e) => setName(e.target.value)}
+        className="rounded border-none h-6 my-1 mx-5 w-50 text-center bg-stone-100"
       />
-      <button type="button" onClick={() => handleRevealGender()}>
+      <button
+        type="button"
+        onClick={() => handleRevealGender()}
+        className="w-36 h-12 rounded-lg bg-[#724545] text-white font-bold cursor-pointer shadow-md"
+      >
         Reveal gender
       </button>
       {nameInfo ? (

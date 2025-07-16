@@ -37,8 +37,8 @@ export const AgePredictor = () => {
   }, [name]);
 
   return (
-    <section>
-      <h2>AgePredictor</h2>
+    <section className="flex flex-col items-center justify-center mt-2">
+      <h2 className="text-2xl font-bold text-orange-900">AgePredictor</h2>
       <p style={{ color: "red" }}>{nameErrorMessage}</p>
       {errorMessage ? <p>{errorMessage}</p> : null}
       {/* <p style={{ color: "orange" }}>{errorMessage}</p> */}
@@ -47,6 +47,7 @@ export const AgePredictor = () => {
         placeholder="Enter yout name"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        className="rounded border-none h-6 my-1 mx-5 w-50 text-center bg-stone-100"
       />
       {nameErrorMessage ? null : (
         <div>

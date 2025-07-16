@@ -2,7 +2,6 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { useState } from "react";
-import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../components/constants/routes";
 
@@ -47,8 +46,8 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h2>Sign in</h2>
+    <div className="flex flex-col items-center justify-center mt-2">
+      <h2 className="text-2xl font-bold text-orange-900">Sign in</h2>
       {message ? <div>{message}</div> : null}
       <Formik
         initialValues={{
@@ -61,19 +60,32 @@ const Login = () => {
         }}
       >
         {({ errors, touched }) => (
-          <Form className={styles.container}>
-            <label>Email:</label>
-            <Field name="email" type="email" className={styles.inp} />
+          <Form className="bg-[#e8e4e4] border-none rounded-lg p-4 flex flex-col justify-start items-center text-center shadow-md gap-2 w-150 mx-auto my-5">
+            <label className="text-[#552929] font-bold w-4/5">Email:</label>
+            <Field
+              name="email"
+              type="email"
+              className="w-full rounded border-none h-6 my-1 mx-auto text-center bg-white"
+            />
             {errors.email && touched.email ? (
-              <div className={styles.err}>{errors.email}</div>
+              <div className="text-red-600 font-bold">{errors.email}</div>
             ) : null}
-            <label>Password:</label>
-            <Field name="password" type="password" className={styles.inp} />
+            <label className="text-[#552929] font-bold w-4/5">Password:</label>
+            <Field
+              name="password"
+              type="password"
+              className="w-full rounded border-none h-6 my-1 mx-auto text-center bg-white"
+            />
             {errors.password && touched.password ? (
-              <div className={styles.err}>{errors.password}</div>
+              <div className="text-red-600 font-bold">{errors.password}</div>
             ) : null}
 
-            <button type="submit">Submit</button>
+            <button
+              type="submit"
+              className="w-36 h-12 rounded-lg bg-[#724545] text-white font-bold cursor-pointer shadow-md"
+            >
+              Submit
+            </button>
           </Form>
         )}
       </Formik>

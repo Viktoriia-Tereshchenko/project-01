@@ -1,6 +1,6 @@
 export default function AccountSettings() {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center mt-2 text-center">
       <h2>Account settings</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import type { User } from "../../types";
 import { Link } from "react-router-dom";
-import styles from "./UsersList.module.css";
 import avatar from "../../assets/avatar.jpg";
 
 export default function UsersList() {
@@ -28,11 +27,14 @@ export default function UsersList() {
   }
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center mt-2 gap-4">
       <h2>Our favorite users</h2>
-      <div className={styles.container}>
+      <div className="grid grid-cols-3 bg-[#e8e4e4] p-4 gap-4 rounded-lg w-4/5">
         {users.map((user) => (
-          <div key={"user" + user.id}>
+          <div
+            key={"user" + user.id}
+            className="h-24 col-span-1 flex flex-col items-center justify-center"
+          >
             <h4>{user.email}</h4>
             <Link to={`/users/${user.id}`}>
               <img
@@ -41,13 +43,13 @@ export default function UsersList() {
                   (e.currentTarget as HTMLImageElement).src = avatar;
                 }}
                 alt="user avatar"
-                className={styles.avatarImg}
+                className="rounded-full w-16 h-16"
               />
             </Link>
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
