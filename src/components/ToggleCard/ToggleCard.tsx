@@ -24,7 +24,7 @@ export default function ToggleCard() {
       <button
         type="button"
         onClick={handleColorChange}
-        className="px-4 py-2 bg-pink-300 text-white rounded-md hover:bg-pink-500"
+        className="px-4 py-2 bg-pink-300 text-white rounded-md hover:bg-pink-500  cursor-pointer"
       >
         Toggle card color
       </button>
