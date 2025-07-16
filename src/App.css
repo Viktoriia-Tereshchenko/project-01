@@ -1,3 +1,4 @@
+/*
 body {
   margin: 0 auto;
   padding: 0;
@@ -5,13 +6,12 @@ body {
 }
 
 .nav-link-active {
-  /* color: goldenrod; */
   color: #976f5b;
   font-size: 35px;
 }
 
 .nav-link {
   color: white;
-  /* color: black; */
   font-size: 35px;
 }
+*/

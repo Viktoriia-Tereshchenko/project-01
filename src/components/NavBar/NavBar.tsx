@@ -9,12 +9,17 @@ export const NavBar = () => {
     return isActive ? "nav-link-active" : "nav-link";
   };
 
-  const { user } = useCurrentUser();
+  const { user, setIsAuthorized, isAuthorized } = useCurrentUser();
   const { counter } = useCounter();
+
+  function handleLogout(): void {
+    setIsAuthorized(false);
+  }
 
   return (
     <>
-      <nav className={styles.navigation}>
+      {/* <nav className={styles.navigation}> */}
+      <nav className="flex justify-center items-center gap-4 flex-wrap bg-pink-200 min-h-14 p-6">
         <NavLink to="/" className={classSelector}>
           Home
         </NavLink>
@@ -60,9 +65,16 @@ export const NavBar = () => {
         <NavLink to={ROUTES.CONTACT} className={classSelector}>
           Contact
         </NavLink>
+        <NavLink to={"/gallery"}>Gallery</NavLink>
+        <NavLink to={"/toggle-card"}>ToggleCard</NavLink>
         {/* отображение в header */}
         <p className={styles.navContext}>{user?.email}</p>
         <p className={styles.navContext}>{counter}</p>
+        {isAuthorized ? (
+          <button type="button" onClick={handleLogout} className={styles.btn}>
+            Logout
+          </button>
+        ) : null}
       </nav>
     </>
   );
