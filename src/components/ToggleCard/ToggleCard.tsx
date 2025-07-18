@@ -10,17 +10,17 @@ export default function ToggleCard() {
 
   return (
     <div className="flex flex-col items-center justify-center mt-10 gap-4">
+      ToggleCard
       <div
         className={cn(
           "h-24 w-48 rounded-xl shadow-lg flex items-center justify-center",
-          {
-            "bg-blue-400": isBlue,
-            "bg-yellow-300": !isBlue,
-          }
+          // {
+          //   "bg-blue-400": isBlue,
+          //   "bg-yellow-300": !isBlue,
+          // }
+          isBlue ? "bg-blue-400" : "bg-yellow-300"
         )}
-      >
-        ToggleCard
-      </div>
+      ></div>
       <button
         type="button"
         onClick={handleColorChange}

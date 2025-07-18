@@ -69,6 +69,10 @@ export const NavBar = () => {
         <NavLink to={"/toggle-card"} className={classSelector}>
           ToggleCard
         </NavLink>
+        <NavLink to={"/parent"} className={classSelector}>
+          Parent
+        </NavLink>
+
         {/* отображение в header */}
         <p className="text-[#682e11]">{user?.email}</p>
         <p className="text-[#682e11]">{counter}</p>

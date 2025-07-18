@@ -24,6 +24,7 @@ import { AddProduct } from "../pages/AddProduct/AddProduct";
 import CreateProduct from "../pages/CreateProduct/CreateProduct";
 import Gallery from "../components/Gallery/Gallery";
 import ToggleCard from "../components/ToggleCard/ToggleCard";
+import { Parent } from "../components/Parent/Parent";
 
 // const userName = "our favourite user";
 const myUrl = "https://developer.alexanderklimov.ru/android/java/sampleapp.jpg";
@@ -98,6 +99,7 @@ export default function AppRoutes() {
           <Route path="*" element={<NotFound />} />
           <Route path={"/gallery"} element={<Gallery />} />
           <Route path={"/toggle-card"} element={<ToggleCard />} />
+          <Route path={"/parent"} element={<Parent />} />
         </Route>
       </Routes>
     </>
